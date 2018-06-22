@@ -1,0 +1,27 @@
+﻿<ViewDataFormTemplateSpec
+  xmlns="bb_appfx_viewdataformtemplate"
+  xmlns:c="bb_appfx_commontypes"
+  ID="41ee9857-9924-4d11-b52d-b5c4f9591104"
+  Name="Exchange Rate Refresh Process View Data Form"
+  Description="A data form for viewing Currency Exchange Rate Refresh Process records."
+  Author="Technical Training"
+  DataFormInstanceID="46792dfc-0702-4727-b3f6-645f3082819b"
+  RecordType="Exchange Rate Refresh Process"
+  c:SecurityUIFolder="Administration\Currencies"
+  >
+
+  <CLRDataForm AssemblyName="Blackbaud.CustomFx.Currency.Catalog" ClassName="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcessViewDataForm">
+    <c:GrantSelectList>
+      <c:GrantSelect>USR_EXCHANGERATEREFRESHPROCESS</c:GrantSelect>
+    </c:GrantSelectList>
+  </CLRDataForm>
+
+  <FormMetaData xmlns="bb_appfx_commontypes">
+    <FormFields>
+      <FormField FieldID="NAME" Caption="Name" DataType="String" MaxLength="100" />
+      <FormField FieldID="DESCRIPTION" Caption="Description" DataType="String" MaxLength="255" />
+      <FormField FieldID="DATE" Caption="Date" DataType="String" />
+    </FormFields>
+  </FormMetaData>
+
+</ViewDataFormTemplateSpec>

@@ -1,0 +1,98 @@
+<PackageSpec
+  xmlns="bb_appfx_package"
+  xmlns:c="bb_appfx_commontypes"
+  ID="bf5348c9-a048-463d-b91a-234af3c47eb5"
+  Name="Exchange Rate Refresh Process Package"
+  Description="A package defining specs related to the Currency Exchange Rate Refresh Process."
+  Author="Technical Training"
+  >
+
+  <c:DependencyList>
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcess.Table.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcess.DataList.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcessStatus.DataList.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcess.Add.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcess.Edit.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcess.View.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcessDelete.RecordOperation.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefresh.BusinessProcess.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.Currency.Catalog.dll" CatalogItem="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcess.Page.xml" />
+  </c:DependencyList>
+
+  <c:InstalledProductList>
+    <c:InstalledProduct ID="3117d2c8-7f46-42f2-abeb-b654f2f63046" />
+    <c:InstalledProduct ID="97d98e59-5b0b-446f-bf48-de8709f50afe" />
+  </c:InstalledProductList>
+
+  <AlterExistingPages xmlns="bb_appfx_pagedefinition">
+    <AlterPages>
+      <!-- Manage Exchange Rates Page -->
+      <AlterPage PageID="b680d6ec-a977-415e-96b3-5760d593cdd1">
+        <AlterTabs>
+          <AddTab Sequence="255">
+            <Tab ID="66F8F948-4308-4E2C-AA27-D6EE398FC7FF" Caption="Exchange Rate Refresh Processes">
+              <Sections>
+                <!-- Exchange Rate Refresh Process Data List -->
+                <Section ID="7C931551-C210-452B-9FB2-654F5F8233E9" Caption="Exchange rate refresh processes">
+                  <DataList ID="70c5fd11-5f25-4f25-889c-f4a515389e1e">
+                    <RenderStyle>
+                      <StandardView />
+                    </RenderStyle>
+                  </DataList>
+                  <Actions>
+                    <Action ID="95D48B01-93C5-4AAB-BA1D-375C83C11282" Caption="Go to process" ImageKey="res:goto_round" DefaultAction="true" AppendSeparator="true" LinkFieldID="NAME">
+                      <c:ShowPage PageID="a17738fc-1c74-4465-a441-254bdb009d52">
+                        <c:ActionContext>
+                          <c:SectionField>ID</c:SectionField>
+                        </c:ActionContext>
+                      </c:ShowPage>
+                    </Action>
+                    <!-- Exchange Rate Refresh Business Process-->
+                    <Action ID="5710E83A-4866-49A1-BD29-72F01C3C788D" Caption="Start process" AppendSeparator="true">
+                      <c:StartBusinessProcess BusinessProcessID="37e7492f-9a86-4029-b125-d133f330bf90" StatusPageID="a17738fc-1c74-4465-a441-254bdb009d52" StatusTabID="2a4f730a-3a43-4d2a-b123-d902e0535ebf">
+                        <c:ActionContext>
+                          <c:SectionField>ID</c:SectionField>
+                        </c:ActionContext>
+                      </c:StartBusinessProcess>
+                    </Action>
+                    <!-- Exchange Rate Refresh Process Add Data Form -->
+                    <Action ID="93E56177-57BC-423C-8666-9FC270DB1E1F" Caption="Add" ImageKey="res:newitem">
+                      <c:ShowAddDataForm DataFormID="f320f9e4-b7fe-4995-95be-27806cff67d0">
+                        <c:PostActionEvent>
+                          <c:RefreshSection />
+                        </c:PostActionEvent>
+                      </c:ShowAddDataForm>
+                    </Action>
+                    <!-- Exchange Rate Refresh Process Edit Data Form -->
+                    <Action ID="A10A55DD-A801-4862-AFF6-AAD7A1E2C424" Caption="Edit">
+                      <c:ShowDataForm DataFormID="0e1b44fa-cb8a-4997-9f89-6ef4d8b5f9c9">
+                        <c:ActionContext>
+                          <c:SectionField>ID</c:SectionField>
+                        </c:ActionContext>
+                        <c:PostActionEvent>
+                          <c:RefreshSection />
+                        </c:PostActionEvent>
+                      </c:ShowDataForm>
+                    </Action>
+                    <!-- Exchange Rate Refresh Process Delete Record Operation -->
+                    <Action ID="732822C9-D70F-411E-9377-A3172B159EA3" Caption="Delete">
+                      <c:ExecuteRecordOperation RecordOperationID="607bf544-c025-470d-bc80-35c3bc649779">
+                        <c:ActionContext>
+                          <c:SectionField>ID</c:SectionField>
+                        </c:ActionContext>
+                        <c:PostActionEvent>
+                          <c:RefreshSection />
+                        </c:PostActionEvent>
+                      </c:ExecuteRecordOperation>
+                    </Action>
+                  </Actions>
+                </Section>
+              </Sections>
+            </Tab>
+          </AddTab>
+        </AlterTabs>
+      </AlterPage>
+    </AlterPages>
+  </AlterExistingPages>
+
+</PackageSpec>

@@ -1,0 +1,51 @@
+﻿<TableSpec
+  xmlns="bb_appfx_table"
+  xmlns:c="bb_appfx_commontypes"
+  ID="45ce1563-8341-4b66-86df-9e5afd6eede8"
+  Name="Exchange Rate Refresh Process"
+  Description="Stores information about Currency Exchange Rate Refresh Process instances."
+  Author="Technical Training"
+  Tablename="USR_EXCHANGERATEREFRESHPROCESS"
+  >
+
+  <Fields>
+    <TextField
+      Name="NAME"
+      Description="The name of the parameter set."
+      Length="100"
+      Required="true"/>
+
+    <TextField
+      Name="DESCRIPTION"
+      Description="The description of the process."
+      Length="255"
+      Required="false"/>
+
+    <TextField
+      Name="FIXERAPIACCESSKEY"
+      Description="The Fixer API access key to fetch exchange rate information."
+      Length="32"
+      Required="true"/>
+
+    <EnumField
+      Name="DATECODE"
+      Description="The date to use when fetching exchange rate information."
+      DefaultValue="0">
+      <EnumValues>
+        <EnumValue ID="0" Translation="Latest"/>
+        <EnumValue ID="1" Translation="Historical"/>
+      </EnumValues>
+    </EnumField>
+
+    <DateField
+      Name="HISTORICALDATE"
+      Description="The date to use when getting rates for an historical date."
+      IncludeTime="false"/>
+  </Fields>
+
+  <CheckConstraints>
+    <CheckConstraint Name="USR_CK_HISTORICALDATEVALID" CheckExpression="(DATECODE = 0 and HISTORICALDATE is null) or (DATECODE = 1 and HISTORICALDATE is not null)"/>
+    <CheckConstraint Name="USR_CK_HISTORICALDATEVALIDRANGE" CheckExpression="HISTORICALDATE is null or (1999 &lt;= datepart(year, HISTORICALDATE) and HISTORICALDATE &lt;= getdate())"/>
+  </CheckConstraints>
+
+</TableSpec>

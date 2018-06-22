@@ -1,0 +1,30 @@
+﻿<RecordOperationSpec
+  xmlns="bb_appfx_recordoperation"
+  xmlns:c="bb_appfx_commontypes"
+  ID="607bf544-c025-470d-bc80-35c3bc649779"
+  Name="Exchange Rate Refresh Process Delete Record Operation"
+  Description="Deletes an instance of the Currency Exchange Rate Refresh Process."
+  Author="Technical Training"
+  OperationType="Delete"
+  RecordType="Exchange Rate Refresh Process"
+  c:SecurityUIFolder="Administration\Currencies"
+  >
+
+  <c:InstalledProductList>
+    <c:InstalledProduct ID="3117d2c8-7f46-42f2-abeb-b654f2f63046" />
+    <c:InstalledProduct ID="97d98e59-5b0b-446f-bf48-de8709f50afe" />
+  </c:InstalledProductList>
+
+  <CLRRecord>
+    <CLRRecordOperation AssemblyName="Blackbaud.CustomFx.Currency.Catalog" ClassName="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcessDeleteRecordOperation">
+      <c:GrantDeleteList>
+        <c:GrantDelete>USR_EXCHANGERATEREFRESHPROCESS</c:GrantDelete>
+      </c:GrantDeleteList>
+    </CLRRecordOperation>
+  </CLRRecord>
+
+  <Prompt>
+    <StandardPrompt Text="Are you sure you want to delete this currency exchange rate refresh process?" />
+  </Prompt>
+
+</RecordOperationSpec>

@@ -1,0 +1,32 @@
+﻿<DataListSpec
+  xmlns="bb_appfx_datalist"
+  xmlns:c="bb_appfx_commontypes"
+  ID="70c5fd11-5f25-4f25-889c-f4a515389e1e"
+  Name="Exchange Rate Refresh Process Data List"
+  Description="A data list showing Currency Exchange Rate Refresh process record information."
+  Author="Technical Training"
+  c:SecurityUIFolder="Administration\Currencies"
+  >
+
+  <c:InstalledProductList>
+    <c:InstalledProduct ID="3117d2c8-7f46-42f2-abeb-b654f2f63046" />
+    <c:InstalledProduct ID="97d98e59-5b0b-446f-bf48-de8709f50afe" />
+  </c:InstalledProductList>
+
+  <CLRDataList AssemblyName="Blackbaud.CustomFx.Currency.Catalog" ClassName="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcessDataList">
+    <c:GrantSelectList>
+      <c:GrantSelect>USR_EXCHANGERATEREFRESHPROCESS</c:GrantSelect>
+    </c:GrantSelectList>
+  </CLRDataList>
+
+  <Output>
+    <OutputFields>
+      <OutputField FieldID="ID" Caption="ID" DataType="Guid" IsHidden="true" />
+      <OutputField FieldID="NAME" Caption="Name" DataType="String" />
+      <OutputField FieldID="DESCRIPTION" Caption="Description" DataType="String" />
+      <OutputField FieldID="FIXERAPIACCESSKEY" Caption="Fixer API access key" DataType="String" />
+      <OutputField FieldID="DATE" Caption="Date" DataType="String" />
+    </OutputFields>
+  </Output>
+
+</DataListSpec>

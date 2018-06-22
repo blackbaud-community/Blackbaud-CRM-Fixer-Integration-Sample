@@ -1,0 +1,59 @@
+<EditDataFormTemplateSpec
+    xmlns="bb_appfx_editdataformtemplate"
+    xmlns:c="bb_appfx_commontypes"
+    ID="42ba2276-1976-4a6d-9599-8aea48902dec"
+    Name="Exchange Rate Refresh Process Edit Data Form"
+    Description="A data form for editing Currency Exchange Rate Refresh process records."
+    Author="Technical Training"
+    DataFormInstanceID="0e1b44fa-cb8a-4997-9f89-6ef4d8b5f9c9"
+    RecordType="Exchange Rate Refresh Process"
+    c:SecurityUIFolder="Administration\Currencies"
+    FormHeader="Edit an exchange rate refresh process"
+    >
+
+  <c:InstalledProductList>
+    <c:InstalledProduct ID="3117d2c8-7f46-42f2-abeb-b654f2f63046" />
+    <c:InstalledProduct ID="97d98e59-5b0b-446f-bf48-de8709f50afe" />
+  </c:InstalledProductList>
+
+  <CLRDataForm AssemblyName="Blackbaud.CustomFx.Currency.Catalog" ClassName="Blackbaud.CustomFx.Currency.Catalog.ExchangeRateRefreshProcessEditDataForm">
+    <c:GrantSelectList>
+      <c:GrantSelect>USR_EXCHANGERATEREFRESHPROCESS</c:GrantSelect>
+    </c:GrantSelectList>
+    <c:GrantUpdateList>
+      <c:GrantUpdate>USR_EXCHANGERATEREFRESHPROCESS</c:GrantUpdate>
+    </c:GrantUpdateList>
+  </CLRDataForm>
+
+  <FormMetaData xmlns="bb_appfx_commontypes">
+    <FormFields>
+      <FormField FieldID="NAME" Caption="Name" DataType="String" Required="true" MaxLength="100" />
+      <FormField FieldID="DESCRIPTION" Caption="Description" DataType="String" MaxLength="255" />
+      <FormField FieldID="FIXERAPIACCESSKEY" Caption="Fixer API access key" DataType="String" Required="true" MaxLength="32" />
+      <FormField FieldID="DATECODE" Caption="Use date" DataType="TinyInt" Required="true" DefaultValueText="0">
+        <ValueList UseRadioButtons="true">
+          <Items>
+            <Item>
+              <Value>0</Value>
+              <Label>Latest</Label>
+            </Item>
+            <Item>
+              <Value>1</Value>
+              <Label>Historical</Label>
+            </Item>
+          </Items>
+        </ValueList>
+      </FormField>
+      <FormField FieldID="HISTORICALDATE" Caption="Date" DataType="Date" IncludeTimeOnDate="false" />
+    </FormFields>
+
+    <WebUIComponent>
+      <UIModel AssemblyName="Blackbaud.CustomFx.Currency.UIModel.dll" ClassName="Blackbaud.CustomFx.Currency.UIModel.ExchangeRateRefreshProcessEditDataFormUIModel" />
+      <WebUI>
+        <ExternalResource Url="browser/htmlforms/custom/currency/ExchangeRateRefreshProcessEditDataForm.html" />
+      </WebUI>
+    </WebUIComponent>
+
+  </FormMetaData>
+
+</EditDataFormTemplateSpec>

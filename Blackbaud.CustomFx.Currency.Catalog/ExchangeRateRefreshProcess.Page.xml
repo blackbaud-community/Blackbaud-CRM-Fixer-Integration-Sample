@@ -1,0 +1,76 @@
+﻿<PageDefinitionSpec
+  xmlns="bb_appfx_pagedefinition"
+  xmlns:c="bb_appfx_commontypes"
+  ID="a17738fc-1c74-4465-a441-254bdb009d52"
+  Name="Exchange Rate Refresh Process Page"
+  Description="A page for displaying information about Currency Exchange Rate Refresh Process instances."
+  Author="Technical Training"
+  ContextRecordType="Exchange Rate Refresh Process"
+  ExpressionDataFormID="46792dfc-0702-4727-b3f6-645f3082819b"
+  >
+
+  <c:InstalledProductList>
+    <c:InstalledProduct ID="3117d2c8-7f46-42f2-abeb-b654f2f63046" />
+    <c:InstalledProduct ID="97d98e59-5b0b-446f-bf48-de8709f50afe" />
+  </c:InstalledProductList>
+  
+  <PageHeader Caption="=Page.Fields!NAME" ImageKey="catalog:Blackbaud.AppFx.Currency.Catalog.dll,Blackbaud.AppFx.Currency.Catalog.currency_exchange.png" />
+
+  <SummarySection ID="4D81B75A-238A-47ED-9B2C-5F72CDFD7D8A" HideCaption="true">
+    <DataForm ID="46792dfc-0702-4727-b3f6-645f3082819b" />
+    <SectionContext>
+      <c:PageContextID />
+    </SectionContext>
+  </SummarySection>
+  
+  <Tabs>
+    <Tab ID="2a4f730a-3a43-4d2a-b123-d902e0535ebf" Caption="Recent Status">
+      <Sections>
+        <Section ID="6c2770fc-3d42-4720-b8c4-220d63eaa345" Caption="Recent status">
+          <DataForm ID="7cf7a0c1-5848-40b2-b3d6-88a1406efc8b" />
+          <SectionContext>
+            <c:PageContextID />
+          </SectionContext>
+        </Section>
+      </Sections>
+    </Tab>
+    <Tab ID="44650F59-C9AE-4407-B676-563A97AE1E1A" Caption="History">
+      <Sections>
+        <Section ID="FE226C08-A3A2-44A7-B192-E60F313BF88C" Caption="History">
+          <DataList ID="75e2cf2c-45aa-4005-ba21-2ebc3d65550f">
+            <RenderStyle>
+              <StandardView />
+            </RenderStyle>
+          </DataList>
+          <Actions>
+            <Action ID="57E5CC1A-D379-4D08-9195-0BE141761C8A" Caption="Delete" ImageKey="res:Delete">
+              <c:ExecuteRecordOperation RecordOperationID="cd7eb55f-22f7-412a-9363-dec8e192310c">
+                <c:ActionContext>
+                  <c:SectionField>ID</c:SectionField>
+                </c:ActionContext>
+                <c:PostActionEvent>
+                  <c:RefreshPage />
+                </c:PostActionEvent>
+              </c:ExecuteRecordOperation>
+            </Action>
+          </Actions>
+        </Section>
+      </Sections>
+    </Tab>
+  </Tabs>
+  
+  <PageActionGroups>
+    <PageActionGroup ID="974e2db6-d4db-40d4-b7c4-4e4186af98d2" Caption="Tasks" ImageKey="RES:Tasks">
+      <Actions>
+        <Action ID="1897d547-d321-48c9-9acd-cc1f7beff431" Caption="Start process" ImageKey="res:BusinessProcessSpec" AppendSeparator="True">
+          <c:StartBusinessProcess BusinessProcessID="37e7492f-9a86-4029-b125-d133f330bf90" StatusPageID="a17738fc-1c74-4465-a441-254bdb009d52" StatusTabID="2a4f730a-3a43-4d2a-b123-d902e0535ebf">
+            <c:ActionContext>
+              <c:PageContextID />
+            </c:ActionContext>
+          </c:StartBusinessProcess>
+        </Action>
+      </Actions>
+    </PageActionGroup>
+  </PageActionGroups>
+
+</PageDefinitionSpec>

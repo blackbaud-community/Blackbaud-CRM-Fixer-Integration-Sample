@@ -1,0 +1,10 @@
+﻿<UIModelWizardMetadata>
+  <SpecFileName>ExchangeRateRefreshProcess.Edit.xml</SpecFileName>
+  <Namespace></Namespace>
+  <ClassName>ExchangeRateRefreshProcessEditDataFormUIModel</ClassName>
+  <HtmlInfo GenerateHtml="true">
+    <HtmlFile>ExchangeRateRefreshProcessEditDataForm.html</HtmlFile>
+    <HtmlFolder>htmlforms\custom\currency\</HtmlFolder>
+  </HtmlInfo>
+  <GenerateFromDatabase>true</GenerateFromDatabase>
+</UIModelWizardMetadata>
