@@ -74,16 +74,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ExchangeRateRefresh.BusinessProcess.xml" />
-    <Content Include="ExchangeRateRefreshProcess.Add.xml" />
-    <Content Include="ExchangeRateRefreshProcess.DataList.xml" />
-    <Content Include="ExchangeRateRefreshProcess.Edit.xml" />
-    <Content Include="ExchangeRateRefreshProcess.Package.xml" />
-    <Content Include="ExchangeRateRefreshProcess.Page.xml" />
-    <Content Include="ExchangeRateRefreshProcess.Table.xml" />
-    <Content Include="ExchangeRateRefreshProcess.View.xml" />
-    <Content Include="ExchangeRateRefreshProcessDelete.RecordOperation.xml" />
-    <Content Include="ExchangeRateRefreshProcessStatus.DataList.xml" />
+    <EmbeddedResource Include="ExchangeRateRefresh.BusinessProcess.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcess.Add.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcess.DataList.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcess.Edit.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcess.Package.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcess.Page.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcess.Table.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcess.View.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcessDelete.RecordOperation.xml" />
+    <EmbeddedResource Include="ExchangeRateRefreshProcessStatus.DataList.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
